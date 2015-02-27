@@ -1,0 +1,6 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="barrier.png" x="0" y="220" width="256" height="196"/>
+	<SubTexture name="bullet.png" x="74" y="418" width="9" height="20"/>
+	<SubTexture name="enemy.png" x="0" y="0" width="293" height="218"/>
+	<SubTexture name="player.png" x="0" y="418" width="72" height="72"/>
+</TextureAtlas>
