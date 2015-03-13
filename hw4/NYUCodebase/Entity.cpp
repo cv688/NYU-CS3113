@@ -50,22 +50,18 @@ bool Entity::entityCollision(Entity object){
 		x + (width * s) > object.x - (object.width * object.s)) {
 		//collideleft
 		if (x > object.x) {
-			//collision = 1;
 			collideLeft = true;
 		}
 		//collideright
 		if (x < object.x) {
-			//collision = 2
 			collideRight = true;
 		} 
 		//collidebottom
 		if (y > object.y) {
-			//collision = 3;
 			collideBottom = true;
 		}
-			//collidetop 
+		//collidetop 
 		if (y < object.y) {
-			//collision = 4;
 			collideTop = true;
 		}
 		return true;
