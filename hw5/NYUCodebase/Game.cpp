@@ -220,7 +220,7 @@ void Game::placeEntity(string &type, const float &xCoord, const float &yCoord) {
 
 
 void Game::Reset() {
-	// reset the flags and the button
+	//reset the lock, key and flag
 	key = Entity(keyX, keyY, 86, 16, 8, 0.5, sheet);
 	lock = Entity(lockX, lockY, 7, 16, 8, 0.5, sheet);
 	getKey = 0;
@@ -351,7 +351,7 @@ void Game::FixedUpdate() {
 		}
 	}
 
-	//reset the collisions 
+	//reset the collisions for each player
 	player1.collideBottom = false;
 	player2.collideBottom = false;
 
@@ -410,14 +410,14 @@ void Game::FixedUpdate() {
 void Game::worldCollision(const char *axis, Entity &entity) {
 	float buffer;
 	if (strncmp(axis, "x", 1) == 0) {
-		// check left
+		//check left collision
 		buffer = tileCollision("x", entity.x - (entity.width * entity.s), entity.y);
 		if (buffer != 0.0) {
 			entity.x = entity.x - (buffer * FIXED_TIMESTEP * 0.08f);
 			entity.velocity_x = 0.0;
 			entity.collideLeft = true;
 		}
-		// check right
+		//check right collision
 		buffer = tileCollision("x", entity.x + (entity.width * entity.s), entity.y);
 		if (buffer != 0.0) {
 			entity.x = entity.x + (buffer * FIXED_TIMESTEP * 0.08f);
@@ -426,14 +426,14 @@ void Game::worldCollision(const char *axis, Entity &entity) {
 		}
 	}
 	if (strncmp(axis, "y", 1) == 0) {
-		// check bottom
+		//check bottom collision
 		buffer = tileCollision("y", entity.x, entity.y - (entity.height * entity.s));
 		if (buffer != 0.0) {
 			entity.y = entity.y + buffer;
 			entity.velocity_y = 0.0;
 			entity.collideBottom = true;
 		}
-		// check top
+		//check top collision
 		buffer = tileCollision("y", entity.x, entity.y + (entity.height * entity.s)); 
 		if (buffer != 0.0) {
 			entity.y = entity.y + (buffer - 0.08f);

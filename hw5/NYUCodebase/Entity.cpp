@@ -57,6 +57,6 @@ bool Entity::entityCollision(Entity object){
 }
 
 void Entity::jump() {
-	velocity_y = 1.7;
+	velocity_y = 1.75;
 	collideBottom = false;
 }
